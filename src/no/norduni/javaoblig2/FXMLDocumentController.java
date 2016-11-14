@@ -63,7 +63,7 @@ public class FXMLDocumentController implements Initializable {
         flights.add(flight);
         //bookingDataStore.writeFile("Flights.dat", (ArrayList) flights);
         
-        this.flightTableView.setItems(flights);
+        this.flightTableView.setItems(flights); 
         
         ObservableList<TableColumn> col = this.flightTableView.getColumns();
         for(TableColumn c : col) {
