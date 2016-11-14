@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="291.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.norduni.javaoblig2.FXMLDocumentController">
+   <children>
+      <BorderPane prefHeight="291.0" prefWidth="549.0">
+         <left>
+            <TableView fx:id="flightTableView" prefHeight="251.0" prefWidth="396.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="flightNo" prefWidth="75.0" text="Flight" />
+                <TableColumn fx:id="fraFlyplass" prefWidth="75.0" text="Fra" />
+                  <TableColumn fx:id="tilFlyplass" prefWidth="75.0" text="Til" />
+                  <TableColumn fx:id="startTid" prefWidth="75.0" text="Start" />
+                  <TableColumn fx:id="reiseTid" prefWidth="75.0" text="Varighet" />
+                  <TableColumn fx:id="antallSeter" prefWidth="75.0" text="Antall seter" />
+              </columns>
+            </TableView>
+         </left>
+         <bottom>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <buttons>
+                <Button fx:id="btnLoadData" mnemonicParsing="false" onAction="#loadDataHandler" text="Load data" />
+                  <Button fx:id="btnReisende" mnemonicParsing="false" onAction="#loadReisendeView" text="Reisende" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+              </buttons>
+            </ButtonBar>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
