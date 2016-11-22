@@ -20,11 +20,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
- *
+ * 
  * @author Thomas
  */
 public class FXMLDocumentController implements Initializable {
-
+    
+    private Flight flight;
+    private ObservableList<Flight> flighter;
     @FXML
     private TableView flightTableView;
     @FXML
