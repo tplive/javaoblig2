@@ -22,6 +22,9 @@ import javafx.scene.layout.GridPane;
  * FXML Controller class
  *
  * @author Thomas
+ * 
+ * Change to a different FXML document: http://www.javafxtutorials.com/tutorials/switching-to-different-screens-in-javafx-and-fxml/
+ * 
  */
 public class FXMLMainDocumentController implements Initializable {
 
