@@ -13,7 +13,7 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Eline
  */
 
-class Gruppe implements java.io.Serializable {
+public class Gruppe implements java.io.Serializable {
 
 	private SimpleIntegerProperty gruppeKode;
 	private SimpleStringProperty flightNo;

@@ -5,67 +5,71 @@
  */
 package no.norduni.javaoblig2;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
  * @author Thomas
  */
-class Reisende implements java.io.Serializable {
+public class Reisende implements java.io.Serializable  {
 	// Private variabler
-	private String navn;
-	private String kjonn;
-	private int alder;
-	private int passNo;
-	private int gruppeKode;
+	private final SimpleStringProperty navn;
+	private final SimpleStringProperty kjonn;
+	private final SimpleIntegerProperty alder;
+	private final SimpleStringProperty passNo;
+	private final SimpleIntegerProperty gruppeKode;
 
 	// Constructor metode
-	public Reisende(String navn, String kjonn, int alder, int passNo, int gruppeKode) {
-		this.navn = navn;
-		this.kjonn = kjonn;
-		this.alder = alder;
-		this.passNo = passNo;
-		this.gruppeKode = gruppeKode;
+	public Reisende() {
+            this.navn = new SimpleStringProperty("");
+            this.kjonn = new SimpleStringProperty("");
+            this.alder = new SimpleIntegerProperty(0);
+            this.passNo = new SimpleStringProperty("");
+            this.gruppeKode = new SimpleIntegerProperty(0);
+            
 	}
 
 	public String getNavn() {
-		return navn;
+		return navn.getValue();
 	}
 
 	public void setNavn(String navn) {
-		this.navn = navn;
+		this.navn.setValue(navn);
 	}
 
 	public String getKjonn() {
-		return kjonn;
+		return kjonn.getValue();
 	}
 
-	public void setKjønn(String kjonn) {
+	public void setKjonn(String kjonn) {
 		if (kjonn == "M" || kjonn == "K") {
-			this.kjonn = kjonn;
+			this.kjonn.setValue(kjonn);
 		}
 	}
 
 	public int getAlder() {
-		return alder;
+		return alder.getValue();
 	}
 
 	public void setAlder(int alder) {
-		this.alder = alder;
+		this.alder.setValue(alder);
 	}
 
-	public int getPassNo() {
-		return passNo;
+	public String getPassNo() {
+		return passNo.getValue();
 	}
 
-	public void setPassNo(int passNo) {
-		this.passNo = passNo;
+	public void setPassNo(String passNo) {
+		this.passNo.setValue(passNo);
 	}
 
 	public int getGruppeKode() {
-		return gruppeKode;
+		return gruppeKode.getValue();
 	}
 
 	public void setGruppeKode(int gruppeKode) {
-		this.gruppeKode = gruppeKode;
+		this.gruppeKode.setValue(gruppeKode);
 	}
 
 }

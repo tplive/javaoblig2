@@ -17,22 +17,16 @@ import javafx.stage.Stage;
  */
 public class Ift205oblig2 extends Application {
     
-    static Stage stagenVaar;
-    static Scene sceneReisende;
+    static Stage stage;
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         
-        stagenVaar = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        Parent reisende = FXMLLoader.load(getClass().getResource("FXMLReisende.fxml"));
+        stage = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLMainDocument.fxml"));
         
         
         Scene scene = new Scene(root);
-        Scene reisendeScene = new Scene(reisende);
-        
-        reisendeScene = sceneReisende;
-        
         primaryStage.setScene(scene);
         primaryStage.show();
     }

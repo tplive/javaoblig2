@@ -45,32 +45,13 @@ public class FXMLDocumentController implements Initializable {
     private TableColumn<?, ?> antallSeter;
     @FXML
     private Button btnReisende;
-
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        ObservableList<Flight> flights = FXCollections.observableArrayList();
-        
-        Flight flight = new Flight();
-        flight.setFlightNo("WF1233");
-        flight.setTilFlyplass("BNN");
-        flight.setFraFlyplass("MQN");
-        flight.setStartTid("2016/12/20");
-        flight.setReiseTid(55);
-        flight.setAntallSeter(23);
-        
-        flights.add(flight);
-        //bookingDataStore.writeFile("Flights.dat", (ArrayList) flights);
-        
-        this.flightTableView.setItems(flights); 
-        
-        ObservableList<TableColumn> col = this.flightTableView.getColumns();
-        for(TableColumn c : col) {
-            c.setCellValueFactory(new PropertyValueFactory(c.getId()));
-        }
         }
 
     @FXML
@@ -82,8 +63,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loadReisendeView(ActionEvent event) {
-        Ift205oblig2.stagenVaar.setScene(Ift205oblig2.sceneReisende);
-        Ift205oblig2.stagenVaar.show();
         
 
     }
