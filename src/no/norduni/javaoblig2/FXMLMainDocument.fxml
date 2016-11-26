@@ -24,34 +24,34 @@
    <children>
       <TableView fx:id="tblViewFlights" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="flightNo" prefWidth="75.0" text="Flight" />
-          <TableColumn fx:id="fraFlyplass" prefWidth="75.0" text="Fra" />
-            <TableColumn fx:id="tilFlyplass" prefWidth="75.0" text="Til" />
-            <TableColumn fx:id="startTid" prefWidth="75.0" text="Start" />
-            <TableColumn fx:id="reiseTid" prefWidth="75.0" text="Varighet" />
-            <TableColumn fx:id="antallSeter" prefWidth="75.0" text="Ant seter" />
+          <TableColumn id="flightNo" prefWidth="75.0" text="Flight" />
+          <TableColumn id="fraFlyplass" prefWidth="75.0" text="Fra" />
+            <TableColumn id="tilFlyplass" prefWidth="75.0" text="Til" />
+            <TableColumn id="startTid" prefWidth="75.0" text="Start" />
+            <TableColumn id="reiseTid" prefWidth="75.0" text="Varighet" />
+            <TableColumn id="antallSeter" prefWidth="75.0" text="Ant seter" />
         </columns>
       </TableView>
       <TableView fx:id="tblViewReisende" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
         <columns>
-          <TableColumn fx:id="navn" prefWidth="75.0" text="Navn" />
-          <TableColumn fx:id="kjonn" prefWidth="75.0" text="Kjønn" />
-            <TableColumn fx:id="alder" prefWidth="75.0" text="Alder" />
-            <TableColumn fx:id="passNo" prefWidth="91.0" text="Passnummer" />
-            <TableColumn fx:id="gruppeKode" prefWidth="81.0" text="Gruppekode" />
+          <TableColumn id="navn" prefWidth="75.0" text="Navn" />
+          <TableColumn id="kjonn" prefWidth="75.0" text="Kjønn" />
+            <TableColumn id="alder" prefWidth="75.0" text="Alder" />
+            <TableColumn id="passNo" prefWidth="91.0" text="Passnummer" />
+            <TableColumn id="gruppeKode" prefWidth="81.0" text="Gruppekode" />
         </columns>
       </TableView>
       <TableView fx:id="tblViewGrupper" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <columns>
-          <TableColumn fx:id="gruppeKode" prefWidth="107.0" text="Gruppekode" />
-          <TableColumn fx:id="flightNo" prefWidth="105.0" text="Flightnummer" />
+          <TableColumn id="gruppeKode" prefWidth="107.0" text="Gruppekode" />
+          <TableColumn id="flightNo" prefWidth="105.0" text="Flightnummer" />
         </columns>
       </TableView>
       <TableView fx:id="tblViewBetalinger" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <columns>
-          <TableColumn fx:id="personPassNo" prefWidth="108.0" text="Passnummer" />
-          <TableColumn fx:id="betalingsMaate" prefWidth="106.0" text="Betalingsmåte" />
-            <TableColumn fx:id="sum" prefWidth="90.0" text="Sum" />
+          <TableColumn id="personPassNo" prefWidth="108.0" text="Passnummer" />
+          <TableColumn id="betalingsMaate" prefWidth="106.0" text="Betalingsmåte" />
+            <TableColumn id="sum" prefWidth="90.0" text="Sum" />
         </columns>
       </TableView>
       <GridPane GridPane.rowIndex="1">

@@ -17,12 +17,12 @@ import javafx.stage.Stage;
  */
 public class Ift205oblig2 extends Application {
     
-    static Stage stage;
+    //static Stage stage;
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         
-        stage = primaryStage;
+        //stage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("FXMLMainDocument.fxml"));
         
         
