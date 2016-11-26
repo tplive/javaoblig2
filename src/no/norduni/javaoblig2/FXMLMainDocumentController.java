@@ -35,7 +35,7 @@ import javafx.stage.StageStyle;
  */
 public class FXMLMainDocumentController implements Initializable {
     
-    String dataFile = "datafile.txt";
+    String dataFile = "dataFile.txt";
     
     @FXML
     private TableView tblViewFlights;
@@ -46,13 +46,19 @@ public class FXMLMainDocumentController implements Initializable {
     @FXML
     private TableView tblViewBetalinger;
     
-    ObservableList<Flight> flights = FXCollections.observableArrayList();
+    public ObservableList<Flight> flights = FXCollections.observableArrayList();
     ObservableList<Reisende> passasjerListe = FXCollections.observableArrayList();
     ObservableList<Gruppe> grupper = FXCollections.observableArrayList();
     ObservableList<Betalinger> betalinger = FXCollections.observableArrayList();
     
     @FXML
     private Button btNyFlight;
+    @FXML
+    private Button btNyReisende;
+    @FXML
+    private Button btNyGruppe;
+    @FXML
+    private Button btNyBetaling;
     
     /**
      * Initializes the controller class.
@@ -112,10 +118,7 @@ public class FXMLMainDocumentController implements Initializable {
 
       private void lastInnData() {
         try {
-            bookingDataStore.readFile(dataFile);
-            
-        } catch (Exception e) {
-            System.out.println(e);
+            //bookingDataStore.readFile(dataFile);
             
             Flight flight = new Flight();
             flight.setFlightNo("WF1233");
@@ -148,8 +151,25 @@ public class FXMLMainDocumentController implements Initializable {
             this.grupper.add(gruppe);
             this.betalinger.add(betaling);
             
+        } catch (Exception e) {
+            System.out.println(e);
+            
+
+            
             
         }
+    }
+
+    @FXML
+    private void btClickNyReisende(ActionEvent event) {
+    }
+
+    @FXML
+    private void btClickNyGruppe(ActionEvent event) {
+    }
+
+    @FXML
+    private void btClickNyBetaling(ActionEvent event) {
     }
     
 }
