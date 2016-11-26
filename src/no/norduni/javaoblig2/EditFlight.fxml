@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="no.norduni.javaoblig2.FXMLMainDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.norduni.javaoblig2.EditFlightController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0">
         <columnConstraints>
@@ -26,8 +25,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" text="Save" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button fx:id="btSaveFlight" mnemonicParsing="false" onAction="#btSaveFlightClick" text="Save" GridPane.rowIndex="6" />
+            <Button fx:id="btCancel" mnemonicParsing="false" onAction="#btCancelClick" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="Flightnummer" />
             <TextField fx:id="tfFlightNo" GridPane.columnIndex="1" />
             <Label text="Fra flyplass" GridPane.rowIndex="1" />
