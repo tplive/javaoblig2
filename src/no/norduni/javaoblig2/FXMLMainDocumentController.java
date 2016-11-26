@@ -161,7 +161,21 @@ public class FXMLMainDocumentController implements Initializable {
     }
 
     @FXML
-    private void btClickNyReisende(ActionEvent event) {
+    private void btClickNyReisende(ActionEvent event) throws IOException {
+        
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditReisende.fxml"));
+            
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene((Pane) fxmlLoader.load()));
+            stage.setTitle("Edit Reisende");
+            
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        
+        
     }
 
     @FXML

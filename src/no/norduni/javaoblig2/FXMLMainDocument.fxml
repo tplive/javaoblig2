@@ -81,7 +81,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" text="Ny reisende" />
+            <Button fx:id="btNyReisende" mnemonicParsing="false" onAction="#btClickNyReisende" text="Ny reisende" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="3">
@@ -95,7 +95,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" text="Ny gruppe" />
+            <Button fx:id="btNyGruppe" mnemonicParsing="false" onAction="#btClickNyGruppe" text="Ny gruppe" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="4">
@@ -109,7 +109,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" text="Ny betaling" />
+            <Button fx:id="btNyBetaling" mnemonicParsing="false" onAction="#btClickNyBetaling" text="Ny betaling" />
          </children>
       </GridPane>
       <Label alignment="CENTER" prefHeight="35.0" prefWidth="345.0" text="King Kong Booking" textAlignment="CENTER" textFill="#133897" GridPane.columnIndex="1">

@@ -19,22 +19,20 @@ import javafx.stage.Stage;
  *
  * @author Thomas
  */
-public class EditFlightController implements Initializable {
+public class EditReisendeController implements Initializable {
 
     @FXML
-    private TextField tfFlightNo;
+    private TextField tfNavn;
     @FXML
-    private TextField tfFraFlyplass;
+    private TextField tfKjonn;
     @FXML
-    private TextField tfTilFlyplass;
+    private TextField tfAlder;
     @FXML
-    private TextField tfStartTid;
+    private TextField tfPassNo;
     @FXML
-    private TextField tfReiseTid;
+    private TextField tfGruppeKode;
     @FXML
-    private TextField tfAntallSeter;
-    @FXML
-    private Button btSaveFlight;
+    private Button btSaveReisende;
     @FXML
     private Button btCancel;
 
@@ -43,26 +41,24 @@ public class EditFlightController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }    
 
     @FXML
-    private void btSaveFlightClick(ActionEvent event) {
+    private void btSaveReisendeClick(ActionEvent event) {
         
-        Flight flight = new Flight();
-        flight.setFlightNo(tfFlightNo.getText());
-        flight.setTilFlyplass(tfFraFlyplass.getText());
-        flight.setFraFlyplass(tfTilFlyplass.getText());
-        flight.setStartTid(tfStartTid.getText());
-        flight.setReiseTid(Integer.parseInt(tfReiseTid.getText()));
-        flight.setAntallSeter(Integer.parseInt(tfAntallSeter.getText()));
+        Reisende reisende = new Reisende();
+        reisende.setNavn(tfNavn.getText());
+        reisende.setAlder(Integer.parseInt(tfAlder.getText()));
+        reisende.setKjonn(tfKjonn.getText());
+        reisende.setPassNo(tfPassNo.getText());
+        reisende.setGruppeKode(Integer.parseInt(tfGruppeKode.getText()));
         
-        //FXMLMainDocumentController.flights.add(flight);
+        
     }
 
     @FXML
     private void btCancelClick(ActionEvent event) {
-        
         Stage stage = (Stage) btCancel.getScene().getWindow();
         stage.close();
     }
