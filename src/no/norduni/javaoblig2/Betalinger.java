@@ -15,11 +15,11 @@ public class Betalinger implements java.io.Serializable {
 
         }
 	
-	public int getPersonPassNo() {
+	public String getPersonPassNo() {
 		return personPassNo;
 	}
 
-	public void setPersonPassNo(int personPassNo) {
+	public void setPersonPassNo(String personPassNo) {
 		this.personPassNo = personPassNo;
 	}
 
@@ -43,7 +43,7 @@ public class Betalinger implements java.io.Serializable {
 		this.sum = sum;
 	}
 
-	private int personPassNo;
+	private String personPassNo;
 	private int betalingsMaate;
 	private double sum;
 }

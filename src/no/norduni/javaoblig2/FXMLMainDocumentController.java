@@ -142,7 +142,7 @@ public class FXMLMainDocumentController implements Initializable {
             gruppe.setGruppeKode(1);
             
             Betalinger betaling = new Betalinger();
-            betaling.setPersonPassNo(123123456);
+            betaling.setPersonPassNo("123123456");
             betaling.setBetalingsMaate(0);
             betaling.setSum(2500.50);
             
@@ -179,11 +179,36 @@ public class FXMLMainDocumentController implements Initializable {
     }
 
     @FXML
-    private void btClickNyGruppe(ActionEvent event) {
+    private void btClickNyGruppe(ActionEvent event) throws IOException {
+        
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditGruppe.fxml"));
+            
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene((Pane) fxmlLoader.load()));
+            stage.setTitle("Edit Gruppe");
+            
+            stage.show();  
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML
-    private void btClickNyBetaling(ActionEvent event) {
+    private void btClickNyBetaling(ActionEvent event) throws IOException {
+        
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditBetaling.fxml"));
+            
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene((Pane) fxmlLoader.load()));
+            stage.setTitle("Edit Betalinger");
+            
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }
