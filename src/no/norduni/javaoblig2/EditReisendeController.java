@@ -47,6 +47,7 @@ public class EditReisendeController implements Initializable {
     @FXML
     private void btSaveReisendeClick(ActionEvent event) {
         
+        // Hent data fra textfields i et nytt Reisende-objekt
         Reisende reisende = new Reisende();
         reisende.setNavn(tfNavn.getText());
         reisende.setAlder(Integer.parseInt(tfAlder.getText()));
@@ -54,6 +55,8 @@ public class EditReisendeController implements Initializable {
         reisende.setPassNo(tfPassNo.getText());
         reisende.setGruppeKode(Integer.parseInt(tfGruppeKode.getText()));
         
+        FXMLMainDocumentController mainController = new FXMLMainDocumentController();
+        mainController.addReisendeToPassasjerListe(reisende);
         
     }
 

@@ -34,12 +34,13 @@ import javafx.stage.StageStyle;
 /**
  * FXML Controller class
  *
- * @author Thomas
+ * @author Thomas & Eline
  *
  *
  */
 public class FXMLMainDocumentController implements Initializable {
 
+    // Vi lagrer data binært i denne filen:
     String dataFile = "dataFile.txt";
 
     @FXML
@@ -51,6 +52,7 @@ public class FXMLMainDocumentController implements Initializable {
     @FXML
     private TableView tblViewBetalinger;
 
+    // Lag lister som kan brukes i GUI
     ObservableList<Flight> flights = FXCollections.observableArrayList();
     ObservableList<Reisende> passasjerListe = FXCollections.observableArrayList();
     ObservableList<Gruppe> grupper = FXCollections.observableArrayList();
@@ -83,7 +85,7 @@ public class FXMLMainDocumentController implements Initializable {
 
         // Skriv til fil
         writeFile(dataFile, dataToStore);
-        
+
         // Last objektene i TableViews
         this.tblViewFlights.setItems(flights);
         this.tblViewReisende.setItems(passasjerListe);
@@ -131,10 +133,8 @@ public class FXMLMainDocumentController implements Initializable {
 
     private void lastInnData() {
         try {
-            
-            
+
             flights.addAll(readFile(dataFile));
-            
 
             Flight flight = new Flight();
             flight.setFlightNo("WF1233");
@@ -144,26 +144,40 @@ public class FXMLMainDocumentController implements Initializable {
             flight.setReiseTid(55);
             flight.setAntallSeter(23);
 
-            Reisende reisende = new Reisende();
-            reisende.setNavn("Eline Westerberg");
-            reisende.setKjonn("K");
-            reisende.setAlder(28);
-            reisende.setPassNo("123123456");
-            reisende.setGruppeKode(1);
+            Reisende reisende1 = new Reisende();
+            reisende1.setNavn("Eline Westerberg");
+            reisende1.setKjonn("K");
+            reisende1.setAlder(28);
+            reisende1.setPassNo("123123456");
+            reisende1.setGruppeKode(1);
+
+            Reisende reisende2 = new Reisende();
+            reisende2.setNavn("Thomas Qvidahl");
+            reisende2.setKjonn("M");
+            reisende2.setAlder(41);
+            reisende2.setPassNo("NO123123567");
+            reisende2.setGruppeKode(1);
 
             Gruppe gruppe = new Gruppe();
             gruppe.setFlightNo("WF1233");
             gruppe.setGruppeKode(1);
 
-            Betalinger betaling = new Betalinger();
-            betaling.setPersonPassNo("123123456");
-            betaling.setBetalingsMaate(0);
-            betaling.setSum(2500.50);
+            Betalinger betaling1 = new Betalinger();
+            betaling1.setPersonPassNo("123123456");
+            betaling1.setBetalingsMaate(0);
+            betaling1.setSum(2500.50);
+
+            Betalinger betaling2 = new Betalinger();
+            betaling2.setPersonPassNo("NO123123567");
+            betaling2.setBetalingsMaate(0);
+            betaling2.setSum(2750.70);
 
             this.flights.add(flight);
-            this.passasjerListe.add(reisende);
+            this.passasjerListe.add(reisende1);
+            this.passasjerListe.add(reisende2);
             this.grupper.add(gruppe);
-            this.betalinger.add(betaling);
+            this.betalinger.add(betaling1);
+            this.betalinger.add(betaling2);
 
         } catch (Exception e) {
             System.out.println(e);
@@ -258,5 +272,29 @@ public class FXMLMainDocumentController implements Initializable {
             ioe.printStackTrace();
         }
 
+    }
+
+    public void addReisendeToPassasjerListe(Reisende r) {
+        // Metode som legger til Reisende-objekt i passasjerListe
+        // Skal hente reisende-objekt fra EditReisendeController.java
+        this.passasjerListe.add(r);
+    }
+
+    public void addFlightToFlights(Flight f) {
+        // Metode som legger til Flight-objekt i flights
+        // Skal hente flight-objekt fra EditFlightController.java
+        this.flights.add(f);
+    }
+
+    void addGruppeToGrupper(Gruppe g) {
+        // Metode som legger til Gruppe-objekt i grupper
+        // Skal hente gruppe-objekt fra EditGruppeController.java
+        this.grupper.add(g);
+    }
+
+    void addBetalingToBetalinger(Betalinger b) {
+        // Metode som legger til Betaling-objekt i betalinger
+        // Skal hente betaling-objekt fra EditBetalingController.java
+        this.betalinger.add(b);
     }
 }

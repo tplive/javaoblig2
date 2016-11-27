@@ -49,6 +49,7 @@ public class EditFlightController implements Initializable {
     @FXML
     private void btSaveFlightClick(ActionEvent event) {
         
+        // Hent inn data fra textfields inn i et Flight-objekt
         Flight flight = new Flight();
         flight.setFlightNo(tfFlightNo.getText());
         flight.setTilFlyplass(tfFraFlyplass.getText());
@@ -57,15 +58,18 @@ public class EditFlightController implements Initializable {
         flight.setReiseTid(Integer.parseInt(tfReiseTid.getText()));
         flight.setAntallSeter(Integer.parseInt(tfAntallSeter.getText()));
         
-        //FXMLMainDocumentController.flights.add(flight);
+        // Legg til flight i flights i main controller
+        FXMLMainDocumentController mainController = new FXMLMainDocumentController();
+        mainController.addFlightToFlights(flight);
         
         
   }    
 
     @FXML
     private void btCancelClick(ActionEvent event) {
-        
+        // Få en ref til stage hvor knappen befinner seg:
         Stage stage = (Stage) btCancel.getScene().getWindow();
+        // Lukk gjeldende stage
         stage.close();
     }
     

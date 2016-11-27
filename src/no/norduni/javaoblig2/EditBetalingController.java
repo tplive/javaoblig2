@@ -38,7 +38,7 @@ public class EditBetalingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void btCancelClick(ActionEvent event) {
@@ -52,8 +52,11 @@ public class EditBetalingController implements Initializable {
         betaling.setBetalingsMaate(Integer.parseInt(tfBetalingsMaate.getText()));
         betaling.setPersonPassNo(tfPassNo.getText());
         betaling.setSum(Double.parseDouble(tfSum.getText()));
-        
+
+        // Legg til betaling i betalinger i main controller
+        FXMLMainDocumentController mainController = new FXMLMainDocumentController();
+        mainController.addBetalingToBetalinger(betaling);
+
     }
-    
+
 }
- 

@@ -36,20 +36,23 @@ public class EditGruppeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void btSaveGruppeClick(ActionEvent event) {
         Gruppe gruppe = new Gruppe();
         gruppe.setGruppeKode(Integer.parseInt(tfGruppeKode.getText()));
         gruppe.setFlightNo(tfFlightNo.getText());
+
+        // Legg til gruppe i grupper i main controller
+        FXMLMainDocumentController mainController = new FXMLMainDocumentController();
+        mainController.addGruppeToGrupper(gruppe);
     }
-    
 
     @FXML
     private void btCancelClick(ActionEvent event) {
         Stage stage = (Stage) btCancel.getScene().getWindow();
         stage.close();
     }
-    
+
 }
