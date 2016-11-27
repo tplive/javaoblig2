@@ -58,7 +58,9 @@ public class EditFlightController implements Initializable {
         flight.setAntallSeter(Integer.parseInt(tfAntallSeter.getText()));
         
         //FXMLMainDocumentController.flights.add(flight);
-    }
+        
+        
+  }    
 
     @FXML
     private void btCancelClick(ActionEvent event) {
