@@ -34,7 +34,7 @@ import javafx.stage.StageStyle;
 /**
  * FXML Controller class
  *
- * @author Thomas & Eline
+ * @author Thomas og Eline
  *
  *
  */
@@ -236,7 +236,7 @@ public class FXMLMainDocumentController implements Initializable {
     }
 
     public static ArrayList readFile(String dataFileName) {
-
+        // Metode for å lese data fra fil til ArrayList
         ArrayList<Flight> objects = new ArrayList<>();
         try {
 
@@ -258,7 +258,8 @@ public class FXMLMainDocumentController implements Initializable {
     }
 
     public static void writeFile(String dataFileName, ArrayList arrayList) {
-
+        //Metode for å skrive data (binært) til fil
+        
         try {
             FileOutputStream fos = new FileOutputStream(dataFileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);

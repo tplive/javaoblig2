@@ -62,7 +62,8 @@ public class EditFlightController implements Initializable {
         FXMLMainDocumentController mainController = new FXMLMainDocumentController();
         mainController.addFlightToFlights(flight);
         
-        
+        // Lukk dialogen etter lagring
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close(); 
   }    
 
     @FXML

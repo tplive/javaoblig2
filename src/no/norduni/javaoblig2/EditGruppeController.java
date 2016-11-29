@@ -47,12 +47,17 @@ public class EditGruppeController implements Initializable {
         // Legg til gruppe i grupper i main controller
         FXMLMainDocumentController mainController = new FXMLMainDocumentController();
         mainController.addGruppeToGrupper(gruppe);
+        
+        // Lukk dialogen etter lagring
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
     private void btCancelClick(ActionEvent event) {
         Stage stage = (Stage) btCancel.getScene().getWindow();
         stage.close();
+        
+        
     }
 
 }

@@ -58,6 +58,9 @@ public class EditReisendeController implements Initializable {
         FXMLMainDocumentController mainController = new FXMLMainDocumentController();
         mainController.addReisendeToPassasjerListe(reisende);
         
+        // Lukk dialogen etter lagring
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
+        
     }
 
     @FXML

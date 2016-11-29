@@ -56,7 +56,9 @@ public class EditBetalingController implements Initializable {
         // Legg til betaling i betalinger i main controller
         FXMLMainDocumentController mainController = new FXMLMainDocumentController();
         mainController.addBetalingToBetalinger(betaling);
-
+        
+        // Lukk dialogen etter lagring
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
     }
 
 }
