@@ -5,6 +5,9 @@
  */
 package no.norduni.javaoblig2;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,12 +19,12 @@ import javafx.beans.property.SimpleStringProperty;
 public class Flight implements java.io.Serializable {
 
     // Private variabler
-    private final SimpleStringProperty flightNo;
-    private final SimpleStringProperty fraFlyplass;
-    private final SimpleStringProperty tilFlyplass;
-    private final SimpleStringProperty startTid;
-    private final SimpleIntegerProperty reiseTid;
-    private final SimpleIntegerProperty antallSeter;
+    private SimpleStringProperty flightNo;
+    private SimpleStringProperty fraFlyplass;
+    private SimpleStringProperty tilFlyplass;
+    private SimpleStringProperty startTid;
+    private SimpleIntegerProperty reiseTid ;
+    private SimpleIntegerProperty antallSeter;
 
     // Constructor
     public Flight() {
@@ -94,4 +97,18 @@ public class Flight implements java.io.Serializable {
         return writableObject;
     }
 
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.writeObject(makeWritableObject());
+    }
+    
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        ArrayList o = (ArrayList) in.readObject();
+             
+        this.flightNo = new SimpleStringProperty((String) o.get(0));
+        this.fraFlyplass = new SimpleStringProperty((String) o.get(1));
+        this.tilFlyplass = new SimpleStringProperty((String) o.get(2));
+        this.reiseTid = new SimpleIntegerProperty((int) o.get(3));
+        this.startTid = new SimpleStringProperty((String) o.get(4));
+        this.antallSeter = new SimpleIntegerProperty((int) o.get(5));
+    }    
 }

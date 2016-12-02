@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 /**
  * FXML Controller class
@@ -59,7 +60,9 @@ public class EditFlightController implements Initializable {
         flight.setAntallSeter(Integer.parseInt(tfAntallSeter.getText()));
         
         // Legg til flight i flights i main controller
-        FXMLMainDocumentController mainController = new FXMLMainDocumentController();
+        
+        Button me = (Button) event.getSource();
+        FXMLMainDocumentController mainController = (FXMLMainDocumentController) ((Window) me.getScene().getWindow()).getUserData();
         mainController.addFlightToFlights(flight);
         
         // Lukk dialogen etter lagring

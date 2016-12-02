@@ -67,7 +67,7 @@
          <children>
             <Button fx:id="btNyFlight" mnemonicParsing="false" onAction="#btClickNyFlight" text="Ny flight" />
             <Button mnemonicParsing="false" text="Load flights" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Save flights" GridPane.rowIndex="2" />
+            <Button fx:id="btSaveAll" mnemonicParsing="false" onAction="#btClickSaveAll" text="Save All" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="2">

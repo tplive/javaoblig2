@@ -119,10 +119,11 @@ public class FXMLMainDocumentController implements Initializable {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditFlight.fxml"));
-
+            
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene((Pane) fxmlLoader.load()));
             stage.setTitle("Edit Flight");
+            stage.setUserData(this);
 
             stage.show();
         } catch (IOException e) {
