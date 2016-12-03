@@ -6,6 +6,7 @@
 package no.norduni.javaoblig3;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 
 public class Database {
-    String dbName = "jdbc:derby://localhost:1527/Booking;create=true";
+    String dbName = "jdbc:derby://localhost:1527/oblig3_190395_285617;create=true";
     protected Connection dbConnection;
     
     public Database() {
@@ -87,5 +88,22 @@ public class Database {
     public Connection getConnection() {
         return dbConnection;
     } 
+    
+    // CRUD
+    // Create, Read, Update, Delete; INSERT, SELECT, UPDATE, DELETE
+    public ArrayList readAllFlights() {
+        ArrayList flights = new ArrayList();
+        return flights;
+
+    }
+    
+    public Flight readFlight(String flightNo) {
+        Flight flight = new Flight();
+        return flight;
+    }
+    
+    public void insertFlight(Flight flight) {
         
+    }
+    
 }

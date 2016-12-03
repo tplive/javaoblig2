@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  *
  * @author Thomas
  */
-public class Ift205oblig2 extends Application {
+public class Ift205oblig3 extends Application {
     
     //static Stage stage;
     
