@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -68,6 +70,10 @@ public class FXMLMainDocumentController implements Initializable {
     private Button btNyBetaling;
     @FXML
     private Button btSaveAll;
+    @FXML
+    private Label lblDBConnection;
+    @FXML
+    private Button btConnectDB;
 
     /**
      * Initializes the controller class.
@@ -314,5 +320,14 @@ public class FXMLMainDocumentController implements Initializable {
                
 
         writeFile(dataFile, dataToStore );
+    }
+
+    @FXML
+    private void btClickConnectDB(ActionEvent event) throws SQLException {
+        
+        lblDBConnection.setText("Kobler til database Booking...");
+        
+        Database db = new Database();
+        lblDBConnection.setText("Koblet til database " + db.getConnection().toString());
     }
 }

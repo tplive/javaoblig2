@@ -66,8 +66,9 @@
         </rowConstraints>
          <children>
             <Button fx:id="btNyFlight" mnemonicParsing="false" onAction="#btClickNyFlight" text="Ny flight" />
-            <Button mnemonicParsing="false" text="Load flights" GridPane.rowIndex="1" />
+            <Button fx:id="btConnectDB" mnemonicParsing="false" onAction="#btClickConnectDB" text="Connect DB" GridPane.rowIndex="1" />
             <Button fx:id="btSaveAll" mnemonicParsing="false" onAction="#btClickSaveAll" text="Save All" GridPane.rowIndex="2" />
+            <Label fx:id="lblDBConnection" text="No connection..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="2">

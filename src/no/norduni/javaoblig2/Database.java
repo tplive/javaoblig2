@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication3;
+package no.norduni.javaoblig2;
 
 import java.sql.*;
 import java.util.logging.Level;
