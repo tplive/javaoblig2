@@ -14,11 +14,11 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Reisende implements java.io.Serializable  {
 	// Private variabler
-	private final SimpleStringProperty navn;
-	private final SimpleStringProperty kjonn;
-	private final SimpleIntegerProperty alder;
-	private final SimpleStringProperty passNo;
-	private final SimpleIntegerProperty gruppeKode;
+	private SimpleStringProperty navn;
+	private SimpleStringProperty kjonn;
+	private SimpleIntegerProperty alder;
+	private SimpleStringProperty passNo;
+	private SimpleIntegerProperty gruppeKode;
 
 	// Constructor metode
 	public Reisende() {
