@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
  *
  * @author Thomas
  */
-
 public class Database {
 
     String dbName = "jdbc:derby://localhost:1527/oblig3_190395_285617;create=true";
@@ -91,34 +90,87 @@ public class Database {
     // CRUD
     // Create, Read, Update, Delete; INSERT, SELECT, UPDATE, DELETE
     public ArrayList<Flight> readAllFlights() throws SQLException {
-        
+
         Flight flight = new Flight();
         ArrayList<Flight> flights = new ArrayList<Flight>();
-        
+
         PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Flights");
         ResultSet result = sqlQuery.executeQuery();
-        
+
         if (result.next()) {
-            flight.setFlightNo(result.getString("FlightNo"));
-            flight.setFraFlyplass(result.getString("fraFlyplass"));
-            flight.setTilFlyplass(result.getString("tilFlyplass"));
-            flight.setReiseTid(result.getInt("reiseTid"));
-            flight.setStartTid(result.getString("startTid"));
-            flight.setAntallSeter(result.getInt("antallSeter"));
-            flights.add(flight);
+            while (result.next()) {
+                flight.setFlightNo(result.getString("FlightNo"));
+                flight.setFraFlyplass(result.getString("fraFlyplass"));
+                flight.setTilFlyplass(result.getString("tilFlyplass"));
+                flight.setReiseTid(result.getInt("reiseTid"));
+                flight.setStartTid(result.getString("startTid"));
+                flight.setAntallSeter(result.getInt("antallSeter"));
+                flights.add(flight);
+            }
         }
         return flights;
 
+    }
+
+    public ArrayList<Reisende> readAllReisende() throws SQLException {
+
+        Reisende reisende = new Reisende();
+        ArrayList<Reisende> passasjerListe = new ArrayList<Reisende>();
+
+        PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Reisende");
+        ResultSet result = sqlQuery.executeQuery();
+
+        if (result.next()) {
+            reisende.setNavn(result.getString("navn"));
+            reisende.setAlder(result.getInt("alder"));
+            reisende.setKjonn(result.getString("kjonn"));
+            reisende.setPassNo(result.getString("passNo"));
+            reisende.setGruppeKode(result.getInt("gruppeKode"));
+            passasjerListe.add(reisende);
+        }
+        return passasjerListe;
+    }
+
+    public ArrayList<Gruppe> readAllGrupper() throws SQLException {
+
+        Gruppe gruppe = new Gruppe();
+        ArrayList<Gruppe> grupper = new ArrayList<Gruppe>();
+
+        PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Grupper");
+        ResultSet result = sqlQuery.executeQuery();
+
+        if (result.next()) {
+            gruppe.setFlightNo(result.getString("flightNo"));
+            gruppe.setGruppeKode(result.getInt("gruppeKode"));
+            grupper.add(gruppe);
+        }
+        return grupper;
+    }
+
+    public ArrayList<Betaling> readAllBetalinger() throws SQLException {
+
+        Betaling betaling = new Betaling();
+        ArrayList<Betaling> betalinger = new ArrayList<Betaling>();
+
+        PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Betaling");
+        ResultSet result = sqlQuery.executeQuery();
+
+        if (result.next()) {
+            betaling.setPersonPassNo(result.getString("personPassNo"));
+            betaling.setBetalingsMaate(result.getInt("betalingsmaate"));
+            betaling.setSum(result.getFloat("Summen"));
+            betalinger.add(betaling);
+        }
+        return betalinger;
     }
 
     public Flight readFlight(String flightNo) {
         Flight flight = new Flight();
         return flight;
     }
-    
 
     public void insertFlight(Flight flight) throws SQLException {
-        
+
         PreparedStatement sqlQuery = dbConnection.prepareStatement("INSERT INTO Flights (FlightNo, tilFlyplass, FraFlyplass, reiseTid, startTid, antallSeter) VALUES (?, ?, ?, ?, ?, ?)");
         sqlQuery.setString(1, flight.getFlightNo());
         sqlQuery.setString(2, flight.getFraFlyplass());
@@ -126,9 +178,21 @@ public class Database {
         sqlQuery.setInt(4, flight.getReiseTid());
         sqlQuery.setString(5, flight.getStartTid());
         sqlQuery.setInt(6, flight.getAntallSeter());
-        
+
         sqlQuery.execute();
-        
+
+    }
+
+    void insertBetaling(Betaling betaling) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void insertGruppe(Gruppe gruppe) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void insertReisende(Reisende reisende) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
