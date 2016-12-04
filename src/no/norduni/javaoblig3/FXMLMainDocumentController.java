@@ -58,7 +58,7 @@ public class FXMLMainDocumentController implements Initializable {
     ObservableList<Flight> flights = FXCollections.observableArrayList();
     ObservableList<Reisende> passasjerListe = FXCollections.observableArrayList();
     ObservableList<Gruppe> grupper = FXCollections.observableArrayList();
-    ObservableList<Betalinger> betalinger = FXCollections.observableArrayList();
+    ObservableList<Betaling> betalinger = FXCollections.observableArrayList();
 
     @FXML
     private Button btNyFlight;
@@ -82,18 +82,17 @@ public class FXMLMainDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         // Last inn mock-data 
-        this.lastInnData();
+        //this.lastInnData();
 
         // Legg objektene i en ArrayList som kan lagres i fil
-        ArrayList dataToStore = new ArrayList();
-        dataToStore.add(flights.addAll());
-        dataToStore.add(passasjerListe.addAll());
-        dataToStore.add(grupper.addAll());
-        dataToStore.add(betalinger.addAll());
-
-        // Skriv til fil
-        writeFile(dataFile, dataToStore);
-        
+//        ArrayList dataToStore = new ArrayList();
+//        dataToStore.add(flights.addAll());
+//        dataToStore.add(passasjerListe.addAll());
+//        dataToStore.add(grupper.addAll());
+//        dataToStore.add(betalinger.addAll());
+//
+//        // Skriv til fil
+//        writeFile(dataFile, dataToStore);
 
         // Last objektene i TableViews
         this.tblViewFlights.setItems(flights);
@@ -128,7 +127,7 @@ public class FXMLMainDocumentController implements Initializable {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditFlight.fxml"));
-            
+
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene((Pane) fxmlLoader.load()));
             stage.setTitle("Edit Flight");
@@ -142,16 +141,12 @@ public class FXMLMainDocumentController implements Initializable {
     }
 
     private void lastInnData() {
-        
-        
-        
+
         try {
-            
+
             // Oblig 2, lese fra fil
             //flights.addAll(readFile(dataFile));
-            
             // Oblig 3, leser fra database
-
         } catch (Exception e) {
             System.out.println(e);
 
@@ -167,6 +162,7 @@ public class FXMLMainDocumentController implements Initializable {
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene((Pane) fxmlLoader.load()));
             stage.setTitle("Edit Reisende");
+            stage.setUserData(this);
 
             stage.show();
         } catch (IOException e) {
@@ -184,6 +180,7 @@ public class FXMLMainDocumentController implements Initializable {
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene((Pane) fxmlLoader.load()));
             stage.setTitle("Edit Gruppe");
+            stage.setUserData(this);
 
             stage.show();
         } catch (IOException e) {
@@ -201,6 +198,7 @@ public class FXMLMainDocumentController implements Initializable {
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene((Pane) fxmlLoader.load()));
             stage.setTitle("Edit Betalinger");
+            stage.setUserData(this);
 
             stage.show();
         } catch (IOException e) {
@@ -232,7 +230,7 @@ public class FXMLMainDocumentController implements Initializable {
 
     public static void writeFile(String dataFileName, ArrayList arrayList) {
         //Metode for å skrive data (binært) til fil
-        
+
         try {
             FileOutputStream fos = new FileOutputStream(dataFileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -266,7 +264,7 @@ public class FXMLMainDocumentController implements Initializable {
         this.grupper.add(g);
     }
 
-    void addBetalingToBetalinger(Betalinger b) {
+    void addBetalingToBetalinger(Betaling b) {
         // Metode som legger til Betaling-objekt i betalinger
         // Skal hente betaling-objekt fra EditBetalingController.java
         this.betalinger.add(b);
@@ -274,30 +272,29 @@ public class FXMLMainDocumentController implements Initializable {
 
     @FXML
     private void btClickSaveAll(ActionEvent event) {
-        
 
         ArrayList dataToStore = new ArrayList();
-        
+
         for (Flight fl : flights) {
             dataToStore.add(fl.makeWritableObject());
         }
-               
 
         //writeFile(dataFile, dataToStore );
     }
 
     @FXML
     private void btClickConnectDB(ActionEvent event) throws SQLException {
-        
+
         lblDBConnection.setText("Kobler til database Booking...");
-        
+
         Database db = new Database();
         lblDBConnection.setText("Koblet til database " + db.getConnection().toString());
-        
-        for (Flight f : db.readAllFlights()) {
-            this.flights.add(f);
-    }
-        
 
+        this.flights.addAll(db.readAllFlights());
+        this.passasjerListe.addAll(db.readAllReisende());
+        this.grupper.addAll(db.readAllGrupper());
+        this.betalinger.addAll(db.readAllBetalinger());
+        
     }
+
 }
