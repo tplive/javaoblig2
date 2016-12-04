@@ -97,8 +97,9 @@ public class Database {
         PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Flights");
         ResultSet result = sqlQuery.executeQuery();
 
-        if (result.next()) {
+        
             while (result.next()) {
+                System.out.println(result.getString("FlightNo"));
                 flight.setFlightNo(result.getString("FlightNo"));
                 flight.setFraFlyplass(result.getString("fraFlyplass"));
                 flight.setTilFlyplass(result.getString("tilFlyplass"));
@@ -107,7 +108,7 @@ public class Database {
                 flight.setAntallSeter(result.getInt("antallSeter"));
                 flights.add(flight);
             }
-        }
+        
         return flights;
 
     }
@@ -121,12 +122,15 @@ public class Database {
         ResultSet result = sqlQuery.executeQuery();
 
         if (result.next()) {
-            reisende.setNavn(result.getString("navn"));
-            reisende.setAlder(result.getInt("alder"));
-            reisende.setKjonn(result.getString("kjonn"));
-            reisende.setPassNo(result.getString("passNo"));
-            reisende.setGruppeKode(result.getInt("gruppeKode"));
-            passasjerListe.add(reisende);
+            while (result.next()) {
+                reisende.setNavn(result.getString("navn"));
+                reisende.setAlder(result.getInt("alder"));
+                reisende.setKjonn(result.getString("kjonn"));
+                reisende.setPassNo(result.getString("passNo"));
+                reisende.setGruppeKode(result.getInt("gruppeKode"));
+                passasjerListe.add(reisende);
+                
+            }
         }
         return passasjerListe;
     }
@@ -140,9 +144,11 @@ public class Database {
         ResultSet result = sqlQuery.executeQuery();
 
         if (result.next()) {
-            gruppe.setFlightNo(result.getString("flightNo"));
-            gruppe.setGruppeKode(result.getInt("gruppeKode"));
-            grupper.add(gruppe);
+            while (result.next()) {
+                gruppe.setFlightNo(result.getString("flightNo"));
+                gruppe.setGruppeKode(result.getInt("gruppeKode"));
+                grupper.add(gruppe);
+            }
         }
         return grupper;
     }
@@ -152,14 +158,17 @@ public class Database {
         Betaling betaling = new Betaling();
         ArrayList<Betaling> betalinger = new ArrayList<Betaling>();
 
-        PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Betaling");
+        PreparedStatement sqlQuery = dbConnection.prepareStatement("SELECT * FROM Betalinger");
         ResultSet result = sqlQuery.executeQuery();
 
         if (result.next()) {
-            betaling.setPersonPassNo(result.getString("personPassNo"));
-            betaling.setBetalingsMaate(result.getInt("betalingsmaate"));
-            betaling.setSum(result.getFloat("Summen"));
-            betalinger.add(betaling);
+            while (result.next()) {
+                System.out.println(result.getString("personPassNo"));
+                betaling.setPersonPassNo(result.getString("personPassNo"));
+                betaling.setBetalingsMaate(result.getInt("betalingsmaate"));
+                betaling.setSum(result.getFloat("Summen"));
+                betalinger.add(betaling);
+            }
         }
         return betalinger;
     }
@@ -183,16 +192,37 @@ public class Database {
 
     }
 
-    void insertBetaling(Betaling betaling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void insertBetaling(Betaling betaling) throws SQLException {
+
+        PreparedStatement sqlQuery = dbConnection.prepareStatement("INSERT INTO Betalinger (personpassno, betalingsmaate, summen) VALUES (?, ?, ?)");
+        sqlQuery.setString(1, betaling.getPersonPassNo());
+        sqlQuery.setInt(2, betaling.getBetalingsMaate());
+        sqlQuery.setDouble(3, betaling.getSum());
+
+        sqlQuery.execute();
+
     }
 
-    void insertGruppe(Gruppe gruppe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void insertGruppe(Gruppe gruppe) throws SQLException {
+                PreparedStatement sqlQuery = dbConnection.prepareStatement("INSERT INTO Betalinger (flightno, gruppekode) VALUES (?, ?)");
+        sqlQuery.setString(1, gruppe.getFlightNo());
+        sqlQuery.setInt(2, gruppe.getGruppeKode());
+
+        sqlQuery.execute();
+        
     }
 
-    void insertReisende(Reisende reisende) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void insertReisende(Reisende reisende) throws SQLException {
+        
+        PreparedStatement sqlQuery = dbConnection.prepareStatement("INSERT INTO REISENDE (navn, alder, kjonn, passno, gruppekode) VALUES (?, ?, ?, ?, ?)");
+        sqlQuery.setString(1, reisende.getNavn());
+        sqlQuery.setInt(2, reisende.getAlder());
+        sqlQuery.setString(3, reisende.getKjonn());
+        sqlQuery.setString(4, reisende.getPassNo());
+        sqlQuery.setInt(5, reisende.getGruppeKode());
+
+        sqlQuery.execute();
+
     }
 
 }
