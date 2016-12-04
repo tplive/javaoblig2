@@ -93,6 +93,7 @@ public class FXMLMainDocumentController implements Initializable {
 
         // Skriv til fil
         writeFile(dataFile, dataToStore);
+        
 
         // Last objektene i TableViews
         this.tblViewFlights.setItems(flights);
@@ -141,52 +142,15 @@ public class FXMLMainDocumentController implements Initializable {
     }
 
     private void lastInnData() {
+        
+        
+        
         try {
-
-            flights.addAll(readFile(dataFile));
-
-//            Flight flight = new Flight();
-//            flight.setFlightNo("WF1233");
-//            flight.setTilFlyplass("BNN");
-//            flight.setFraFlyplass("MQN");
-//            flight.setStartTid("2016/12/20");
-//            flight.setReiseTid(55);
-//            flight.setAntallSeter(23);
-//
-//            Reisende reisende1 = new Reisende();
-//            reisende1.setNavn("Eline Westerberg");
-//            reisende1.setKjonn("K");
-//            reisende1.setAlder(28);
-//            reisende1.setPassNo("123123456");
-//            reisende1.setGruppeKode(1);
-//
-//            Reisende reisende2 = new Reisende();
-//            reisende2.setNavn("Thomas Qvidahl");
-//            reisende2.setKjonn("M");
-//            reisende2.setAlder(41);
-//            reisende2.setPassNo("NO123123567");
-//            reisende2.setGruppeKode(1);
-//
-//            Gruppe gruppe = new Gruppe();
-//            gruppe.setFlightNo("WF1233");
-//            gruppe.setGruppeKode(1);
-//
-//            Betalinger betaling1 = new Betalinger();
-//            betaling1.setPersonPassNo("123123456");
-//            betaling1.setBetalingsMaate(0);
-//            betaling1.setSum(2500.50);
-//
-//            Betalinger betaling2 = new Betalinger();
-//            betaling2.setPersonPassNo("NO123123567");
-//            betaling2.setBetalingsMaate(0);
-//            betaling2.setSum(2750.70);
-//
-//            this.flights.add(flight);
-//            this.passasjerListe.add(reisende1);
-//            this.passasjerListe.add(reisende2);
-//            this.grupper.add(gruppe);
-//            this.betalinger.add(betaling1);
-//            this.betalinger.add(betaling2);
+            
+            // Oblig 2, lese fra fil
+            //flights.addAll(readFile(dataFile));
+            
+            // Oblig 3, leser fra database
 
         } catch (Exception e) {
             System.out.println(e);
@@ -319,7 +283,7 @@ public class FXMLMainDocumentController implements Initializable {
         }
                
 
-        writeFile(dataFile, dataToStore );
+        //writeFile(dataFile, dataToStore );
     }
 
     @FXML
@@ -329,5 +293,11 @@ public class FXMLMainDocumentController implements Initializable {
         
         Database db = new Database();
         lblDBConnection.setText("Koblet til database " + db.getConnection().toString());
+        
+        for (Flight f : db.readAllFlights()) {
+            this.flights.add(f);
+    }
+        
+
     }
 }

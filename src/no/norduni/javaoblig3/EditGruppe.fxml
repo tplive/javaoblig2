@@ -25,8 +25,8 @@
             <Button fx:id="btCancel" mnemonicParsing="false" onAction="#btCancelClick" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Gruppekode" />
             <Label text="Flightnummer" GridPane.rowIndex="1" />
-            <TextField fx:id="tfGruppeKode" GridPane.columnIndex="1" />
-            <TextField fx:id="tfFlightNo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfGruppeKode" text="1" GridPane.columnIndex="1" />
+            <TextField fx:id="tfFlightNo" text="WF123" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

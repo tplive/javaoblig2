@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="no.norduni.javaoblig3.EditBetalingController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.norduni.javaoblig3.EditBetalingController">
    <children>
       <GridPane prefHeight="404.0" prefWidth="605.0">
         <columnConstraints>
@@ -28,9 +27,9 @@
             <Label text="Passnummer" />
             <Label text="Betalingsmåte" GridPane.rowIndex="1" />
             <Label text="Sum" GridPane.rowIndex="2" />
-            <TextField fx:id="tfPassNo" GridPane.columnIndex="1" />
-            <TextField fx:id="tfBetalingsMaate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="tfSum" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfPassNo" text="NO12345676" GridPane.columnIndex="1" />
+            <TextField fx:id="tfBetalingsMaate" promptText="CASH" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfSum" promptText="2549.50" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

@@ -6,6 +6,7 @@
 package no.norduni.javaoblig3;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,7 +49,7 @@ public class EditFlightController implements Initializable {
     }    
 
     @FXML
-    private void btSaveFlightClick(ActionEvent event) {
+    private void btSaveFlightClick(ActionEvent event) throws SQLException {
         
         // Hent inn data fra textfields inn i et Flight-objekt
         Flight flight = new Flight();
@@ -64,6 +65,12 @@ public class EditFlightController implements Initializable {
         Button me = (Button) event.getSource();
         FXMLMainDocumentController mainController = (FXMLMainDocumentController) ((Window) me.getScene().getWindow()).getUserData();
         mainController.addFlightToFlights(flight);
+        
+        Database database = new Database();
+        
+        database.insertFlight(flight);
+        
+        
         
         // Lukk dialogen etter lagring
         ((Stage) ((Button) event.getSource()).getScene().getWindow()).close(); 

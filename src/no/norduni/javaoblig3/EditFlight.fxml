@@ -28,17 +28,17 @@
             <Button fx:id="btSaveFlight" mnemonicParsing="false" onAction="#btSaveFlightClick" text="Save" GridPane.rowIndex="6" />
             <Button fx:id="btCancel" mnemonicParsing="false" onAction="#btCancelClick" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="Flightnummer" />
-            <TextField fx:id="tfFlightNo" GridPane.columnIndex="1" />
+            <TextField fx:id="tfFlightNo" text="WF123" GridPane.columnIndex="1" />
             <Label text="Fra flyplass" GridPane.rowIndex="1" />
             <Label text="Til flyplass" GridPane.rowIndex="2" />
             <Label text="Reisetid" GridPane.rowIndex="4" />
             <Label text="Start tid" GridPane.rowIndex="3" />
             <Label text="Antall seter" GridPane.rowIndex="5" />
-            <TextField fx:id="tfFraFlyplass" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="tfTilFlyplass" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="tfStartTid" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="tfReiseTid" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="tfAntallSeter" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tfFraFlyplass" text="MQN" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfTilFlyplass" text="BNN" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfStartTid" text="20/12/2016" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfReiseTid" text="35" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="tfAntallSeter" text="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>

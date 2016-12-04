@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="no.norduni.javaoblig3.EditReisendeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.norduni.javaoblig3.EditReisendeController">
    <children>
       <GridPane prefHeight="405.0" prefWidth="606.0">
         <columnConstraints>
@@ -30,11 +29,11 @@
             <Label text="Alder" GridPane.rowIndex="2" />
             <Label text="Passnummer" GridPane.rowIndex="3" />
             <Label prefHeight="17.0" prefWidth="85.0" text="Gruppekode" GridPane.rowIndex="4" />
-            <TextField fx:id="tfNavn" GridPane.columnIndex="1" />
-            <TextField fx:id="tfKjonn" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="tfAlder" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="tfPassNo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="tfGruppeKode" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="tfNavn" text="Eline Westerberg" GridPane.columnIndex="1" />
+            <TextField fx:id="tfKjonn" text="K" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfAlder" text="28" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfPassNo" text="NO12345676" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfGruppeKode" text="1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button fx:id="btSaveReisende" mnemonicParsing="false" onAction="#btSaveReisendeClick" text="Save" GridPane.rowIndex="5" />
             <Button fx:id="btCancel" mnemonicParsing="false" onAction="#btCancelClick" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
